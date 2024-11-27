@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-400">
+    <form class="todo-form w-[450px] flex flex-col justify-between p-5 rounded-md bg-white mx-auto mt-10" autocomplete="off">
+        <input required class="border-[1px] border-slate-500 p-2 rounded-md mb-3" name="userTodo" type="text" placeholder="Add your todo">
+        <label class="py-2 cursor-pointer flex items-center gap-2">
+            <img src="./images/upload-svgrepo-com.svg" alt="img" width="30" height="30">
+            <strong>Upload Image</strong>
+            <input class="border-[1px] hidden border-slate-500 rounded-md" type="file" name="todoImage" accept="image/*" onchange="showImagePreview(event)">
+        </label>
+        <div id="imagePreview" class="flex items-center gap-2 py-2 hidden">
+            <img class="flex" src="" id="selectedImage" class="max-w-[100px] rounded-md" alt="Selected Image">
+        </div>
+        <button class="bg-green-500 text-white font-semibold p-2 w-full rounded-md" type="submit">Add</button>
+    </form>
+    <div class="my-10 ml-[580px]">
+        <button onclick="handleAllClickBtn()" class="all-btn inline-block bg-green-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-600 transition duration-300">
+            <span class="text-sm">All</span>
+            <strong class="text-lg ml-2">0</strong>
+        </button>
+        <button onclick="handleCompletedClickBtn()" class="completed-btn inline-block bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+            <span class="text-sm">Completed</span>
+            <strong class="text-lg ml-2">0</strong>
+        </button>     
+        <button onclick="handleUncompletedClickBtn()" class="uncompleted-btn inline-block bg-yellow-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300">
+            <span class="text-sm">Uncompleted</span>
+            <strong class="text-lg ml-2">0</strong>
+        </button>    
+    </div>
+    <button onclick="handleDeleteAllClickBtn()" class="delete-all-btn block mx-auto bg-red-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-600 transition duration-300">
+        <span class="text-sm">Delete All</span>
+    </button>
+    
+
+    
+    <ul class="todo-list w-[450px] space-y-[10px] bg-white p-5 rounded-md mx-auto mt-5">
+        
+    </ul>
+    
+    
+    
+    
+    <script src="./main.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
